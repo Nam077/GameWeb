@@ -1,0 +1,6 @@
+@include('site_include.hd')
+@include('site_include.header')
+@include('site_include.canvas')
+@yield('main')
+@include('site_include.footer')
+@include('site_include.end')
