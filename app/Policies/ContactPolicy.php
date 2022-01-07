@@ -53,7 +53,7 @@ class ContactPolicy
      */
     public function update(User $user)
     {
-        return $user->checkPermissionAccess('edit_contact');
+        return $user->checkPermissionAccess('create_contact');
     }
 
     /**

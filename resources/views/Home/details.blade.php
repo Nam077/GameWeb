@@ -81,164 +81,95 @@
                                         {!! $game->content !!}
                                     </div>
                                 </div>
-                                {{--                                <div class="game_details_content_step">--}}
-                                {{--                                    <h2>features:</h2>--}}
-                                {{--                                    <div class="game_details_desc">--}}
-                                {{--                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500--}}
-                                {{--                                            when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap electro--}}
-                                {{--                                            typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more--}}
-                                {{--                                            recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>--}}
-                                {{--                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500--}}
-                                {{--                                            when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap electro--}}
-                                {{--                                            typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more--}}
-                                {{--                                            recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>--}}
-                                {{--                                    </div>--}}
-                                {{--                                </div>--}}
-                                {{--                                <div class="game_details_content_step">--}}
-                                {{--                                    <h2 class="color2">what’s new!</h2>--}}
-                                {{--                                    <div class="game_details_desc">--}}
-                                {{--                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500--}}
-                                {{--                                            when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap electro--}}
-                                {{--                                            typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more--}}
-                                {{--                                            recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>--}}
-                                {{--                                        <p class="game_details_desc_style2">Lorem Ipsum is simply dummy text of the printing and typesetting industry has been the--}}
-                                {{--                                            industry's standard dummy text ever since the 1500 printer took galley of type scrambled--}}
-                                {{--                                            it to make a type specimen book.</p>--}}
-                                {{--                                    </div>--}}
-                                {{--                                </div>--}}
-                                {{--                                <div class="gam_additional_information">--}}
-                                {{--                                    <h3 class="additional_information_title">Additional Information:</h3>--}}
-                                {{--                                    <div class="gam_additional_inner d-flex ">--}}
-                                {{--                                        <div class="additional_information_text">--}}
-                                {{--                                            <h4>Updated:</h4>--}}
-                                {{--                                            <span>February 25, 2021</span>--}}
-                                {{--                                        </div>--}}
-                                {{--                                        <div class="additional_information_text">--}}
-                                {{--                                            <h4>Size:</h4>--}}
-                                {{--                                            <span>98MB</span>--}}
-                                {{--                                        </div>--}}
-                                {{--                                        <div class="additional_information_text">--}}
-                                {{--                                            <h4>Installs:</h4>--}}
-                                {{--                                            <span>80,000,000+</span>--}}
-                                {{--                                        </div>--}}
-                                {{--                                        <div class="additional_information_text">--}}
-                                {{--                                            <h4>Current version:</h4>--}}
-                                {{--                                            <span>03.00.28.00.00</span>--}}
-                                {{--                                        </div>--}}
-                                {{--                                        <div class="additional_information_text">--}}
-                                {{--                                            <h4>In-app products</h4>--}}
-                                {{--                                            <span>$0.85 - $985.00</span>--}}
-                                {{--                                        </div>--}}
-                                {{--                                    </div>--}}
-                                {{--                                </div>--}}
-                                {{--                                <div class="game_details_content_step">--}}
-                                {{--                                    <div class="game_details_desc">--}}
-                                {{--                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500--}}
-                                {{--                                            when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap electro--}}
-                                {{--                                            typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more--}}
-                                {{--                                            recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>--}}
-                                {{--                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500--}}
-                                {{--                                            when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap electro--}}
-                                {{--                                            recently with desktop publishing software like including versions.</p>--}}
-                                {{--                                    </div>--}}
-                                {{--                                </div>--}}
-                                {{--                            </div>--}}
-                                {{--                        </div>--}}
                                 <div class="blog_comment_wrapper match_details_comment">
                                     <div class="comments_box">
                                         <div class="comments_title">
                                             <h2>Review:</h2>
                                         </div>
-                                        <div class="comment_list d-flex">
-                                            <div class="comment_thumb">
-                                                <img width="100" height="100" src="{{asset('sites/assets/img/blog/post-comment1.webp')}}" alt="">
-                                            </div>
-                                            <div class="comment_content">
-                                                <a href="#"> <img width="50" height="50" src="{{asset('sites/assets/img/others/dot-button.webp')}}" alt=""> </a>
-                                                <h3>Randolph Frazier</h3>
-                                                <div class="game__review d-flex align-items-center">
-                                                    <ul class="d-flex">
-                                                        <li><a href="#"><i class="icofont-star"></i></a></li>
-                                                        <li><a href="#"><i class="icofont-star"></i></a></li>
-                                                        <li><a href="#"><i class="icofont-star"></i></a></li>
-                                                        <li><a href="#"><i class="icofont-star"></i></a></li>
-                                                        <li><a href="#"><i class="icofont-star"></i></a></li>
-                                                    </ul>
-                                                    <span> 28 January, 2021</span>
+                                        {{--                                        <div class="comment_list d-flex">--}}
+                                        {{--                                            <div class="comment_thumb">--}}
+                                        {{--                                                <img width="100" height="100" src="{{asset('sites/assets/img/blog/post-comment1.webp')}}" alt="">--}}
+                                        {{--                                            </div>--}}
+                                        {{--                                            <div class="comment_content">--}}
+                                        {{--                                                <a href="#"> <img width="50" height="50" src="{{asset('sites/assets/img/others/dot-button.webp')}}" alt=""> </a>--}}
+                                        {{--                                                <h3>Randolph Frazier</h3>--}}
+                                        {{--                                                <div class="game__review d-flex align-items-center">--}}
+                                        {{--                                                    <ul class="d-flex">--}}
+                                        {{--                                                        <li><a href="#"><i class="icofont-star"></i></a></li>--}}
+                                        {{--                                                        <li><a href="#"><i class="icofont-star"></i></a></li>--}}
+                                        {{--                                                        <li><a href="#"><i class="icofont-star"></i></a></li>--}}
+                                        {{--                                                        <li><a href="#"><i class="icofont-star"></i></a></li>--}}
+                                        {{--                                                        <li><a href="#"><i class="icofont-star"></i></a></li>--}}
+                                        {{--                                                    </ul>--}}
+                                        {{--                                                    <span> 28 January, 2021</span>--}}
+                                        {{--                                                </div>--}}
+                                        {{--                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem sum has been--}}
+                                        {{--                                                    unknown printer took a galley of type and scrambled it to make a type specimen book. It has surv--}}
+                                        {{--                                                    with desktop publishing software like including versions.</p>--}}
+                                        {{--                                            </div>--}}
+                                        {{--                                        </div>--}}
+                                        @foreach($gameRate as $itemRate)
+                                            <div class="comment_list d-flex">
+                                                <div class="comment_thumb">
+                                                    <img width="100" height="100" src="https://template.hasthemes.com/bonx/bonx/assets/img/blog/post-comment1.webp" alt="">
                                                 </div>
-                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem sum has been
-                                                    unknown printer took a galley of type and scrambled it to make a type specimen book. It has surv
-                                                    with desktop publishing software like including versions.</p>
-                                            </div>
-                                        </div>
-                                        <div class="comment_list d-flex">
-                                            <div class="comment_thumb">
-                                                <img width="100" height="100" src="{{asset('sites/assets/img/blog/post-comment2.webp')}}" alt="">
-                                            </div>
-                                            <div class="comment_content">
-                                                <a href="#"> <img width="50" height="50" src="{{asset('sites/assets/img/others/dot-button.webp')}}" alt=""> </a>
-                                                <h3>{{$game->name}}}</h3>
-                                                <div class="game__review d-flex align-items-center">
-                                                    <ul class="d-flex">
-                                                        <li><a href="#"><i class="icofont-star"></i></a></li>
-                                                        <li><a href="#"><i class="icofont-star"></i></a></li>
-                                                        <li><a href="#"><i class="icofont-star"></i></a></li>
-                                                        <li><a href="#"><i class="icofont-star"></i></a></li>
-                                                        <li><a href="#"><i class="icofont-star"></i></a></li>
-                                                    </ul>
-                                                    <span> 28 January, 2021</span>
+                                                <div class="comment_content">
+                                                    <a href="#"> <img width="50" height="50" src="{{asset('sites/assets/img/others/dot-button.webp')}}" alt=""> </a>
+                                                    <h3>{{$itemRate->rateUser->name}}</h3>
+
+                                                    <div class="game__review d-flex align-items-center">
+                                                        <ul class="d-flex">
+                                                            @if($itemRate->rate > 0)
+                                                                @foreach (range(1, $itemRate->rate) as $rateStar)
+                                                                    <li><a href="#"><i class="icofont-star"></i></a></li>
+                                                                @endforeach
+                                                            @endif
+                                                        </ul>
+                                                        <span> 28 January, 2021</span>
+                                                    </div>
+                                                    <p>{{$itemRate -> review}}</p>
                                                 </div>
-                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem sum has been
-                                                    unknown printer took a galley of type and scrambled it to make a type specimen book. It has surv
-                                                    with desktop publishing software like including versions.</p>
                                             </div>
-                                        </div>
+                                        @endforeach
+
                                     </div>
-                                    <div class="comments_form">
-                                        <div class="comments_title">
-                                            <h2>Place your review:</h2>
+
+                                    @if(auth()->check())
+                                        <div class="comments_form">
+                                            <div class="comments_title">
+                                                <h2>Place your review:</h2>
+                                            </div>
+                                            <div class="comments_form_inner">
+                                                <form method="post" action="{{route('game.saverate',['id'=>$game->id])}}">
+                                                    @csrf
+                                                    <div class="row">
+                                                        <div class="col-lg-3 col-md-3">
+                                                            <div class="comments_form_input input">
+                                                                <output>4</output>
+                                                                <input name="rate" type="range" value="4" min="1" max="5" oninput="this.previousElementSibling.value = this.value">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="comments_form_input">
+                                                                <textarea name="review" placeholder="Write a review from here"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form_input_btn text-center">
+                                                        <button type="submit" class="btn btn-link">SUBMIT NOW</button>
+                                                    </div>
+                                                </form>
+                                            </div>
                                         </div>
-                                        <div class="comments_form_inner">
-                                            <form action="#">
-                                                <div class="row">
-                                                    <div class="col-lg-6 col-md-6">
-                                                        <div class="comments_form_input">
-                                                            <input placeholder="Name *" type="text">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6 col-md-6">
-                                                        <div class="comments_form_input">
-                                                            <input placeholder="Email *" type="text">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6 col-md-6">
-                                                        <div class="comments_form_input">
-                                                            <input placeholder="Address *" type="text">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6 col-md-6">
-                                                        <div class="comments_form_input">
-                                                            <input placeholder="Review" type="text">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <div class="comments_form_input">
-                                                            <textarea placeholder="Write a review from here"></textarea>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="comments_submit_btn text-center">
-                                                    <a class="btn btn-link" href="#">SUBMIT NOW <img width="20" height="20"
-                                                                                                     src="{{asset('sites/assets/img/icon/arrrow-icon.webp')}}" alt=""> </a>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
+                                    @endif
+
                                 </div>
 
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
         </section>
         <!--game details section area end-->
 
@@ -290,7 +221,7 @@
                                     for gamING update.</h2>
                             </div>
                             <div class="gaming_update_btn">
-                                <a class="btn btn-link" href="contact.html">CONNECT NOW <img width="20" height="20" src="{{asset('sites/assets/img/icon/arrrow-icon.webp')}}"
+                                <a class="btn btn-link" href="{{route('home.contact')}}">CONNECT NOW <img width="20" height="20" src="{{asset('sites/assets/img/icon/arrrow-icon.webp')}}"
                                                                                              alt=""> </a>
                             </div>
                         </div>

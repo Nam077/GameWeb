@@ -67,6 +67,11 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('permission-edit', 'App\Policies\PermissionPolicy@update');
         Gate::define('permission-delete', 'App\Policies\PermissionPolicy@delete');
 
+        Gate::define('blog-list', 'App\Policies\BlogPolicy@view');
+        Gate::define('blog-create', 'App\Policies\BlogPolicy@create');
+        Gate::define('blog-edit', 'App\Policies\BlogPolicy@update');
+        Gate::define('blog-delete', 'App\Policies\BlogPolicy@delete');
+
 
     }
 }

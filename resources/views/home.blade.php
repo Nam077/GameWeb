@@ -103,37 +103,27 @@
                             "slidesToScroll": 1,
                             "arrows": true,
                             "dots": false,
-                            "autoplay": false,
-                            "speed": 300,
+                            "autoplay": true,
+                            "speed": 200,
                             "infinite": true ,
                             "responsive":[
                             {"breakpoint":500, "settings": { "slidesToShow": 1 } }
                             ]
                         }'>
-                            <div class="gaming_video_thumb">
-                                <img width="1170" height="540" src="{{asset('sites/assets/img/bg/gaming-bg1.webp')}}"
-                                     alt="">
-                                <div class="gaming_video_paly_icon">
-                                    <a class="video_popup" href="https://www.youtube.com/watch?v=eS9Qm4AOOBY"><img
-                                            width="134" height="140"
-                                            src="{{asset('sites/assets/img/others/play-btn.webp')}}" alt=""></a>
+                            @foreach($slider as $itemSlider)
+                                <div class="gaming_video_thumb">
+                                    <img width="1170" height="540" src="{{$itemSlider ->image_path}}"
+                                         alt="">
+                                    <div class="gaming_video_paly_icon">
+                                        <a class="video_popup" href="{{$itemSlider ->description}}"><img
+                                                width="134" height="140"
+                                                src="{{asset('sites/assets/img/others/play-btn.webp')}}" alt=""></a>
+                                    </div>
+                                    <div class="live_streaming_text">
+                                        <h3>{{$itemSlider -> name}}</h3>
+                                    </div>
                                 </div>
-                                <div class="live_streaming_text">
-                                    <h3>Watch Live Streaming</h3>
-                                </div>
-                            </div>
-                            <div class="gaming_video_thumb">
-                                <img width="1170" height="540" src="{{asset('sites/assets/img/bg/gaming-bg1.webp')}}"
-                                     alt="">
-                                <div class="gaming_video_paly_icon">
-                                    <a class="video_popup" href="https://www.youtube.com/watch?v=eS9Qm4AOOBY"><img
-                                            width="134" height="140"
-                                            src="{{asset('sites/assets/img/others/play-btn.webp')}}" alt=""></a>
-                                </div>
-                                <div class="live_streaming_text">
-                                    <h3>Watch Live Streaming</h3>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -308,7 +298,7 @@
                                             <a class="btn btn-link" href="{{route('home.details',['id' => $value->id])}}">Game Details <img width="20" height="20" src="{{asset
                                             ('sites/assets/img/icon/arrrow-icon
                                             .webp')
-                                            }}"alt=""> </a>
+                                            }}" alt=""> </a>
                                         </div>
                                     </div>
                                 </div>
@@ -419,7 +409,7 @@
                                     for gamING update.</h2>
                             </div>
                             <div class="gaming_update_btn">
-                                <a class="btn btn-link" href="contact.html">CONNECT NOW <img width="20" height="20"
+                                <a class="btn btn-link" href="{{route('home.contact')}}">CONNECT NOW <img width="20" height="20"
                                                                                              src="{{asset('sites/assets/img/icon/arrrow-icon.webp')}}"
                                                                                              alt=""> </a>
                             </div>

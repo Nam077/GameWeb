@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/*  
+/*
     CSS INDEX
     =========================================
     01. header css here
@@ -187,7 +187,7 @@ figure {
   transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
-/*-- 
+/*--
     - Common Classes
 -----------------------------------------*/
 .fix {
@@ -535,7 +535,7 @@ figure {
   color: #000000;
 }
 
-/*-- 
+/*--
     - Background color
 -----------------------------------------*/
 .bg-white {
@@ -550,7 +550,7 @@ figure {
   background: #354b65;
 }
 
-/*-- 
+/*--
     - Input Placeholder
 -----------------------------------------*/
 input:-moz-placeholder, textarea:-moz-placeholder {
@@ -6273,9 +6273,7 @@ section.error_section {
             flex-direction: column;
   }
 }
-.game__review ul li:last-child a {
-  color: #ffffff;
-}
+
 .game__review ul li a {
   font-size: 14px;
   color: #ff7901;

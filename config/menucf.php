@@ -26,6 +26,11 @@ return [
         'icon' => 'fa-user'
     ],
     [
+        'label' => 'Blog',
+        'route' => 'blogs.index',
+        'icon' => 'fa-shopping-cart'
+    ],
+    [
         'label' => 'Slider',
         'route' => 'sliders.index',
         'icon' => 'fa-image'

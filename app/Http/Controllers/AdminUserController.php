@@ -107,7 +107,7 @@ class AdminUserController extends Controller
     {
         try {
             DB::beginTransaction();
-             $this->user->find($id)->update([
+            $this->user->find($id)->update([
                 'name' => $request ->name,
                 'email' => $request ->email,
                 'password' => Hash::make($request ->password),

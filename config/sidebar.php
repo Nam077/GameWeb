@@ -17,6 +17,10 @@ return [
         'value' => 'permission',
     ],
     [
+        'label' => 'Blog',
+        'value' => 'blog',
+    ],
+    [
         'label' => 'Game',
         'value' => 'game',
     ],
@@ -32,5 +36,6 @@ return [
         'label' => 'Phân Quyền',
         'value' => 'role',
     ],
+
 ]
 ?>

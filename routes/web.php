@@ -256,7 +256,35 @@ Route::group(['prefix' => 'admin', 'middleware' => 'CheckLogOut'], function () {
 
         ]);
     });
+    Route::prefix('blog')->group(function () {
+        Route::get('/', [
+            'as' => 'blogs.index',
+            'uses' => 'AdminBlogController@index',
+            'middleware' => 'can:blog-list',
 
+        ]);
+        Route::get('/add', [
+            'as' => 'blogs.create',
+            'uses' => 'AdminBlogController@create',
+            'middleware' => 'can:blog-create',
+        ]);
+        Route::post('/store', [
+            'as' => 'blogs.store',
+            'uses' => 'AdminBlogController@store'
+        ]);
+        Route::get('/view/{id}', [
+            'as' => 'blogs.view',
+            'uses' => 'AdminBlogController@view',
+            'middleware' => 'can:blog-edit',
+
+        ]);
+        Route::get('/delete/{id}', [
+            'as' => 'blogs.delete',
+            'uses' => 'AdminBlogController@destroy',
+            'middleware' => 'can:blog-delete',
+        ]);
+
+    });
 
     Route::prefix('contact')->group(function () {
         Route::get('/', [
@@ -319,6 +347,34 @@ Route::group(['prefix' => 'admin', 'middleware' => 'CheckLogOut'], function () {
         ]);
     });
 
+    Route::prefix('game-rate')->group(function () {
+        Route::get('/{id}', [
+            'as' => 'gamerate.index',
+            'uses' => 'PermissionController@index'
+        ]);
+        Route::get('/create', [
+            'as' => 'gamerate.create',
+            'uses' => 'PermissionController@create',
+            'middleware' => 'can:permission-create',
+        ]);
+        Route::post('/store', [
+            'as' => 'gamerate.store',
+            'uses' => 'PermissionController@store'
+        ]);
+        Route::get('/edit/{id}', [
+            'as' => 'gamerate.edit',
+            'uses' => 'PermissionController@edit'
+        ]);
+        Route::get('/delete/{id}', [
+            'as' => 'gamerate.delete',
+            'uses' => 'PermissionController@destroy'
+        ]);
+        Route::post('/update/{id}', [
+            'as' => 'gamerate.update',
+            'uses' => 'PermissionController@update'
+        ]);
+    });
+
 });
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
@@ -334,6 +390,7 @@ Route::post('home/login', [
     'uses' => 'HomeController@postloginHome',
     'middleware' => 'CheckLogIn'
 ]);
+
 Route::get('/register', [
     'as' => 'home.register',
     'uses' => 'HomeController@registerHome',
@@ -415,6 +472,10 @@ Route::group(['prefix' => 'playgame', 'middleware' => 'checkAuth'], function () 
     Route::post('/savescore', [
         'as' => 'game.savescore',
         'uses' => 'HomeController@storeScore',
+    ]);
+    Route::post('/saverate/{id}', [
+        'as' => 'game.saverate',
+        'uses' => 'HomeController@saveRate',
     ]);
     Route::get('/savescore', [
         'as' => 'game.savescore',

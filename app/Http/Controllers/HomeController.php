@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Contact;
 use App\Game;
+use App\GameRate;
 use App\GameScore;
 use App\Http\Requests\ContactAddRequest;
 use App\Http\Requests\RegisterAddRequest;
+use App\Slider;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,15 +20,15 @@ use Illuminate\Support\Facades\Log;
 class HomeController extends Controller
 {
 
-    public function __construct(User $user, Game $game, Category $category, Contact $contact, GameScore $gameScore)
+    public function __construct(User $user, Game $game, Category $category, Contact $contact, GameScore $gameScore, GameRate $gameRate,   Slider $slider)
     {
         $this->user = $user;
         $this->category = $category;
         $this->game = $game;
         $this->contact = $contact;
         $this->gameScore = $gameScore;
-
-
+        $this->gameRate = $gameRate;
+        $this->slider = $slider;
     }
     /**
      * Create a new controller instance.
@@ -44,10 +46,10 @@ class HomeController extends Controller
     public function index()
     {
         $category = $this->category->all();
-
+        $slider = $this->slider->paginate(4);
         $game = $this->game->paginate(4);
         $gameall = $this->game->all();
-        return view('home', ['game' => $game, 'category' => $category, 'gameall' => $gameall]);
+        return view('home', ['game' => $game, 'category' => $category, 'gameall' => $gameall, 'slider'=>$slider]);
     }
 
     public function gameCategory($slug)
@@ -98,7 +100,7 @@ class HomeController extends Controller
         }
         $category = $this->category->all();
         $gameall = $this->game->all();
-        return view('Home.login', ['category' => $category,'gameall' => $gameall]);
+        return view('Home.login', ['category' => $category, 'gameall' => $gameall]);
     }
 
     public function postloginHome(Request $request)
@@ -154,15 +156,16 @@ class HomeController extends Controller
         $gameall = $this->game->all();
         $category = $this->category->all();
         $game = $this->game->search()->paginate(16);
-        return view('Home.allgame', compact('game', 'category','gameall'));
+        return view('Home.allgame', compact('game', 'category', 'gameall'));
     }
 
     public function details($id)
     {
+        $gameRate = $this->gameRate->getRate()->orderBy('rate', 'DESC')->get();
         $category = $this->category->all();
         $game = $this->game->find($id);
         $gameall = $this->game->all();
-        return view('Home.details', compact('game', 'category', 'gameall'));
+        return view('Home.details', compact('game', 'category', 'gameall','gameRate'));
     }
 
     public function slither()
@@ -246,7 +249,26 @@ class HomeController extends Controller
         $category = $this->category->all();
         $gameall = $this->game->all();
         $gameScore = $this->gameScore->getGameScore()->orderBy('score', 'DESC')->get();
-        return view('home.ranking', ['gameScore' => $gameScore, 'gameall' => $gameall ,'category' => $category]);
+        return view('home.ranking', ['gameScore' => $gameScore, 'gameall' => $gameall, 'category' => $category]);
 
+    }
+
+    public function saveRate(Request $request, $id)
+    {
+        try {
+            DB::beginTransaction();
+            $gameRate = $this->gameRate->create([
+                'game_id' => $id,
+                'user_id' => Auth::user()->id,
+                'review' => $request->review,
+                'rate' => $request->rate,
+            ]);
+            DB::commit();
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            dd($exception);
+            Log::error('Messges' . $exception->getMessage() . 'Line' . $exception->getLine());
+        }
+        return redirect()->back();
     }
 }
