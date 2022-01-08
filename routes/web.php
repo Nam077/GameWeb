@@ -356,28 +356,28 @@ Route::group(['prefix' => 'admin', 'middleware' => 'CheckLogOut'], function () {
     Route::prefix('game-rate')->group(function () {
         Route::get('/{id}', [
             'as' => 'gamerate.index',
-            'uses' => 'PermissionController@index'
+            'uses' => 'AdminGameRateController@index'
         ]);
         Route::get('/create', [
             'as' => 'gamerate.create',
-            'uses' => 'PermissionController@create',
+            'uses' => 'AdminGameRateController@create',
             'middleware' => 'can:permission-create',
         ]);
         Route::post('/store', [
             'as' => 'gamerate.store',
-            'uses' => 'PermissionController@store'
+            'uses' => 'AdminGameRateController@store'
         ]);
         Route::get('/edit/{id}', [
             'as' => 'gamerate.edit',
-            'uses' => 'PermissionController@edit'
+            'uses' => 'AdminGameRateController@edit'
         ]);
         Route::get('/delete/{id}', [
             'as' => 'gamerate.delete',
-            'uses' => 'PermissionController@destroy'
+            'uses' => 'AdminGameRateController@destroy'
         ]);
         Route::post('/update/{id}', [
             'as' => 'gamerate.update',
-            'uses' => 'PermissionController@update'
+            'uses' => 'AdminGameRateController@update'
         ]);
     });
 

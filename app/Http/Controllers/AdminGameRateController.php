@@ -4,9 +4,16 @@ namespace App\Http\Controllers;
 
 use App\GameRate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class AdminGameRateController extends Controller
 {
+    public function __construct(GameRate $gameRate)
+    {
+
+            $this->gameRate = $gameRate;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +21,9 @@ class AdminGameRateController extends Controller
      */
     public function index($id)
     {
-        //
+        $gameRate = $this->gameRate->getRate()->paginate(5);
+        return view('admin.gamerate.index', compact('gameRate'));
+
     }
 
     /**
@@ -78,8 +87,20 @@ class AdminGameRateController extends Controller
      * @param  \App\GameRate  $gameRate
      * @return \Illuminate\Http\Response
      */
-    public function destroy(GameRate $gameRate)
+    public function destroy($id)
     {
-        //
+        try {
+            $this ->gameRate->find($id)->delete();
+            return  response() -> json([
+                'code' => 200,
+                'message' => 'success'
+            ], 200);
+        } catch (\Exception $exception){
+            Log::error('Messges' . $exception->getMessage() . 'Line' . $exception->getLine());
+            return  response() -> json([
+                'code' => 500,
+                'message' => 'fail'
+            ], 500);
+        }
     }
 }

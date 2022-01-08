@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Blog;
+use App\BlogTag;
 use App\Category;
 use App\Contact;
 use App\Game;
@@ -11,6 +12,7 @@ use App\GameScore;
 use App\Http\Requests\ContactAddRequest;
 use App\Http\Requests\RegisterAddRequest;
 use App\Slider;
+use App\TagBlog;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,7 +23,7 @@ use Illuminate\Support\Facades\Log;
 class HomeController extends Controller
 {
 
-    public function __construct(User $user, Game $game, Category $category, Contact $contact, GameScore $gameScore, GameRate $gameRate,   Slider $slider, Blog $blog)
+    public function __construct(User $user, Game $game, Category $category, Contact $contact, GameScore $gameScore, GameRate $gameRate,   Slider $slider, Blog $blog, TagBlog $tagBlog)
     {
         $this->user = $user;
         $this->category = $category;
@@ -31,6 +33,7 @@ class HomeController extends Controller
         $this->gameRate = $gameRate;
         $this->slider = $slider;
         $this->blog = $blog;
+        $this->tagBlog = $tagBlog;
     }
     /**
      * Create a new controller instance.
@@ -285,5 +288,12 @@ class HomeController extends Controller
         $blog = $this->blog->getBlogBySlug()->first();
 
         return  view('home.blogdetails',compact('blog','gameall','category','blogFooter'));
+    }
+    public function blog(){
+        $category = $this->category->all();
+        $gameall = $this->game->all();
+        $blog = $this->blog->paginate(7);
+        $tag = $this->tagBlog->all();
+        return view('home.blog', compact('category','gameall','blog','tag'));
     }
 }

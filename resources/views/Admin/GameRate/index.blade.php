@@ -10,9 +10,9 @@
     <script src="{{asset('admins/game/view/index.js')}}"></script>
 @endsection
 @section('main')
-    <div class="col-md-12">
-        <a class="btn btn-primary" href="{{route('games.create')}}">Thêm Game</a>
-    </div>
+{{--    <div class="col-md-12">--}}
+{{--        <a class="btn btn-primary" href="{{route('games.create')}}">Thêm Game</a>--}}
+{{--    </div>--}}
     <hr>
     <div class="col-12">
         <div class="card">
@@ -40,41 +40,30 @@
                     <tr>
                         <th>ID</th>
                         <th>Tên Game</th>
-                        <th>Hình Ảnh</th>
-                        <th>Danh Mục</th>
-                        <th>Hướng Dẫn</th>
+                        <th>Người Bình Luận</th>
+                        <th>Số Sao</th>
+                        <th>Bình Luận</th>
                         <th class="text-right">Action</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($games as $gameItems)
+                    @foreach($gameRate as $Items)
                         <tr>
-                            <td>{{$gameItems -> id}}</td>
-                            <td>{{$gameItems -> name}}</td>
-                            <td>
-                                <img class="image_game" src="{{$gameItems -> feature_image_path}}" alt="">
-                            </td>
-                            <td>{{$gameItems ->category ->name}}</td>
-                            <td>
+                            <td>{{$Items -> id}}</td>
+                            <td>{{$Items -> rateGame ->name}}</td>
+                            <td>{{$Items -> rateUser ->name}}</td>
+                            <td>{{$Items -> rate}}</td>
+                            <td style="word-wrap: break-word;width:400px;white-space: normal;">{{$Items -> review}}</td>
                             <td class="text-right">
 
-                                <a href="{{route('games.edit',['id' =>$gameItems->id])}}"
-                                   class="btn btn-sm btn-success">
-                                    <i class="fas fa-edit"></i>
-                                </a>
-                                <a href="{{route('gamescore.index',['id' =>$gameItems->id])}}"
-                                   class="btn btn-sm btn-success">
-                                    <i class="fas fa-columns"></i>
-                                </a>
-                                <a href="{{route('gamerate.index',['id' =>$gameItems->id])}}"
-                                   class="btn btn-sm btn-success">
-                                    <i class="fas fa-star"></i>
-                                </a>
-                                <a href="" data-url="{{route('games.delete',['id' =>$gameItems->id])}}"
+{{--                                <a href="{{route('gamesc.edit',['id' =>$Items->id])}}"--}}
+{{--                                   class="btn btn-sm btn-success">--}}
+{{--                                    <i class="fas fa-edit"></i>--}}
+{{--                                </a>--}}
+                                <a href="" data-url="{{route('gamerate.delete',['id' =>$Items->id])}}"
                                    class="btn btn-sm btn-danger btn-delete">
                                     <i class="fas fa-trash"></i>
                                 </a>
-
                             </td>
 
                         </tr>
@@ -85,7 +74,7 @@
 
             </div>
             <div class="col-md-12 ">
-                {{ $games->appends(request()->all())->links() }}
+                {{ $gameRate->appends(request()->all())->links() }}
             </div>
             <!-- /.card-body -->
         </div>

@@ -28,7 +28,7 @@ return [
     [
         'label' => 'Blog',
         'route' => 'blogs.index',
-        'icon' => 'fa-shopping-cart'
+        'icon' => 'fa-blog'
     ],
     [
         'label' => 'Slider',

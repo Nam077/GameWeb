@@ -20,6 +20,8 @@
                                         <li><a href="#">Match Details</a></li>
                                     </ul>
                                 </li>
+                                <li><a href="{{route('home.blog')}}">BLog</a>
+                                </li>
                                 <li><a href="#">Category</a>
                                     <ul class="sub_menu">
                                         @foreach($category as $item)

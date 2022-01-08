@@ -31,9 +31,8 @@
                             <div class="blog_details_header text-center">
                                 <div class="blog__meta_date">
                                     <ul class="d-flex justify-content-center">
-                                        <li><span>By</span> Harold Leonard</li>
-                                        <li> 03 April, 21</li>
-                                        <li>0 min read</li>
+                                        <li><span>By</span> {{$blog ->nameUser->name}}</li>
+                                        <li> {{$blog ->created_at}}</li>
                                     </ul>
                                 </div>
                                 <div class="blog_details_title">
