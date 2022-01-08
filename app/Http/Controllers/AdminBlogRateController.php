@@ -83,7 +83,7 @@ class AdminBlogRateController extends Controller
      * Remove the specified resource from storage.
      *
      * @param \App\BlogRate $blogRate
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\Response
      */
     public function destroy($id)
     {

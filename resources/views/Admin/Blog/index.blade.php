@@ -64,7 +64,7 @@
                                 </a>
                                 <a href="{{route('rateblog.index',['id' =>$item->id])}}"
                                    class="btn btn-sm btn-success">
-                                    <i class="fas fa-edit"></i>
+                                    <i class="fas fa-columns"></i>
                                 </a>
 
                                 <a href="" data-url="{{route('blogs.delete',['id' =>$item->id])}}"

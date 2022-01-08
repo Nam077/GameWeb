@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Blog;
 use App\BlogRate;
-use App\BlogTag;
 use App\Category;
 use App\Contact;
 use App\Game;
@@ -24,8 +23,7 @@ use Illuminate\Support\Facades\Log;
 class HomeController extends Controller
 {
 
-    public function __construct(BlogRate $blogRate,User $user, Game $game, Category $category, Contact $contact, GameScore $gameScore, GameRate $gameRate,   Slider $slider, Blog $blog, TagBlog
-    $tagBlog)
+    public function __construct(BlogRate $blogRate, User $user, Game $game, Category $category, Contact $contact, GameScore $gameScore, GameRate $gameRate, Slider $slider, Blog $blog, TagBlog $tagBlog)
     {
         $this->user = $user;
         $this->category = $category;
@@ -58,7 +56,7 @@ class HomeController extends Controller
         $slider = $this->slider->paginate(4);
         $game = $this->game->paginate(4);
         $gameall = $this->game->all();
-        return view('home', ['game' => $game, 'category' => $category, 'gameall' => $gameall, 'slider'=>$slider, 'blog'=>$blog]);
+        return view('home', ['game' => $game, 'category' => $category, 'gameall' => $gameall, 'slider' => $slider, 'blog' => $blog]);
     }
 
     public function gameCategory($slug)
@@ -174,7 +172,7 @@ class HomeController extends Controller
         $category = $this->category->all();
         $game = $this->game->find($id);
         $gameall = $this->game->all();
-        return view('Home.details', compact('game', 'category', 'gameall','gameRate'));
+        return view('Home.details', compact('game', 'category', 'gameall', 'gameRate'));
     }
 
     public function slither()
@@ -192,7 +190,8 @@ class HomeController extends Controller
 
     public function sokoban()
     {
-        return view('Game.sokoban');
+        $game = $this->game->where('id', request()->id)->first();
+        return view('Game.sokoban',['game' => $game]);
     }
 
     public function number()
@@ -203,7 +202,8 @@ class HomeController extends Controller
 
     public function chess()
     {
-        return view('Game.chess');
+        $game = $this->game->where('id', request()->id)->first();
+        return view('Game.chess',['game' => $game]);
     }
 
     public function line98()
@@ -214,7 +214,8 @@ class HomeController extends Controller
 
     public function fillmaze()
     {
-        return view('Game.fillmaze');
+        $game = $this->game->where('id', request()->id)->first();
+        return view('Game.fillmaze', ['game' => $game]);
     }
 
     public function pacman()
@@ -225,7 +226,8 @@ class HomeController extends Controller
 
     public function knight()
     {
-        return view('Game.knight');
+        $game = $this->game->where('id', request()->id)->first();
+        return view('Game.knight', ['game' => $game]);
     }
 
     public function getScore()
@@ -280,6 +282,7 @@ class HomeController extends Controller
         }
         return redirect()->back();
     }
+
     public function saveRateBlog(Request $request, $slug)
     {
         try {
@@ -298,9 +301,11 @@ class HomeController extends Controller
         }
         return redirect()->back();
     }
-    public function detailBlog($slug){
 
-        if(request()->slug == null){
+    public function detailBlog($slug)
+    {
+
+        if (request()->slug == null) {
             return redirect()->back();
         }
         $blogFooter = $this->blog->orderBy('created_at', 'DESC')->paginate(12);
@@ -308,13 +313,15 @@ class HomeController extends Controller
         $category = $this->category->all();
         $blog = $this->blog->getBlogBySlug()->first();
         $blogComment = $blog->getAllComments()->get();
-        return  view('home.blogdetails',compact('blog','gameall','category','blogFooter','blogComment'));
+        return view('home.blogdetails', compact('blog', 'gameall', 'category', 'blogFooter', 'blogComment'));
     }
-    public function blog(){
+
+    public function blog()
+    {
         $category = $this->category->all();
         $gameall = $this->game->all();
         $blog = $this->blog->paginate(7);
         $tag = $this->tagBlog->all();
-        return view('home.blog', compact('category','gameall','blog','tag'));
+        return view('home.blog', compact('category', 'gameall', 'blog', 'tag'));
     }
 }
