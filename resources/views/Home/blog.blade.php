@@ -8,7 +8,7 @@
                     <div class="breadcrumbs_text text-center">
                         <h1>BLOG PAGE</h1>
                         <ul class="d-flex justify-content-center">
-                            <li><a href="index.html">Home </a></li>
+                            <li><a href="{{route('home.index')}}">Home </a></li>
                             <li><span>//</span></li>
                             <li> Blog List Right Sidebar</li>
                         </ul>
@@ -37,7 +37,7 @@
                                         </div>
                                         <div class="blog_content">
                                             <div class="blog_date">
-                                                <span><i class="icofont-calendar"></i>  {{$itemBlog -> created_at}}</span>
+                                                <span><i class="icofont-calendar"></i>  {{$itemBlog -> created_at}} by {{$itemBlog -> nameUser ->name}}</span>
                                             </div>
                                             <h3><a href="{{route('home.blogdetails',['slug'=>$itemBlog->slug])}}">{{$itemBlog -> name}}</a></h3>
                                             <a href="{{route('home.blogdetails',['slug'=>$itemBlog->slug])}}">READ MORE</a>
@@ -63,7 +63,7 @@
                                 <h3>Search Here</h3>
                                 <div class="widget_search">
                                     <form action="#">
-                                        <input placeholder="Search here" type="text">
+                                        <input name="key" placeholder="Search here" type="text">
                                         <button type="submit"><i class="icofont-search-1"></i></button>
                                     </form>
                                 </div>

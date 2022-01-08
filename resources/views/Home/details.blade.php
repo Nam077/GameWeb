@@ -8,7 +8,7 @@
                     <div class="breadcrumbs_text text-center">
                         <h1>Game details</h1>
                         <ul class="d-flex justify-content-center">
-                            <li><a href="index.html">Home </a></li>
+                            <li><a href="{{route('home.index')}}">Home </a></li>
                             <li><span>//</span></li>
                             <li> Game</li>
                         </ul>

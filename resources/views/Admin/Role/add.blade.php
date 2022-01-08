@@ -48,7 +48,7 @@
                 class="form-control @error('name') is-invalid @enderror"
                 id="formGroupExampleInput"
                 value="{{old('display_name')}}"
-                placeholder="Tên">
+                placeholder="Mô Tả Vai Trò">
             @error('name')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror

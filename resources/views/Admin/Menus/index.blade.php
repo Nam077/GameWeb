@@ -4,13 +4,13 @@
 @endsection
 @section('main')
     <div class="col-md-12">
-        <a class="btn btn-primary" href="{{route('menus.create')}}">Thêm Danh Mục</a>
+        <a class="btn btn-primary" href="{{route('menus.create')}}">Thêm Menu</a>
     </div>
     <hr>
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Responsive Hover Table</h3>
+                <h3 class="card-title">Menu</h3>
 
                 <div class="card-tools">
                     <form action="">

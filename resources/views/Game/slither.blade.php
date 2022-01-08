@@ -12,7 +12,7 @@
 <form id="form_save" action="{{route("game.savescore")}}" method="post">
     @csrf
     <input id="name_user" value="{{$name}}" type="hidden">
-    <input name="game_id" value="{{$game ->id}}" type="hidden">
+    <input name="game_id" id="game_id" value="{{$game ->id}}" type="hidden">
     <input id="score" name="score" type="hidden">
 </form>
 

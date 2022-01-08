@@ -27,4 +27,5 @@ class Blog extends Model
     public function  getAllComments(){
         return $this ->hasMany(BlogRate::class, 'blog_id', 'id');
     }
+
 }

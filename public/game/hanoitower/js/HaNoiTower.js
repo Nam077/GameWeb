@@ -14,7 +14,7 @@ touchCheck = false;
 speedAuto = 1;
 
 var auto_im = new Image();
-auto_im.src = "http://localhost:8000/storage/photos/17/auto.png";
+auto_im.src = "http://localhost:8000/storage/files/2/auto.png";
 
 class game {
     constructor() {

@@ -67,7 +67,7 @@ class HomeController extends Controller
         if ($categoryget == null) {
             return redirect()->route('home.index');
         }
-        $game = $categoryget->gameall()->get();
+        $game = $categoryget->gameall()->search()->get();
         $gameall = $this->game->all();
         return view('Home.gameByCategory', compact('game', 'namecategory', 'category', 'gameall'));
     }
@@ -186,6 +186,16 @@ class HomeController extends Controller
     {
         $game = $this->game->where('id', request()->id)->first();
         return view('Game.gold', ['game' => $game]);
+    }
+    public function hanoi()
+    {
+        $game = $this->game->where('id', request()->id)->first();
+        return view('Game.hanoi', ['game' => $game]);
+    }
+    public function moneychange()
+    {
+        $game = $this->game->where('id', request()->id)->first();
+        return view('Game.moneychange', ['game' => $game]);
     }
 
     public function sokoban()
@@ -320,7 +330,7 @@ class HomeController extends Controller
     {
         $category = $this->category->all();
         $gameall = $this->game->all();
-        $blog = $this->blog->paginate(7);
+        $blog = $this->blog->search()->paginate(7);
         $tag = $this->tagBlog->all();
         return view('home.blog', compact('category', 'gameall', 'blog', 'tag'));
     }

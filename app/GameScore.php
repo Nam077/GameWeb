@@ -16,6 +16,9 @@ class GameScore extends Model
     public function nameUser(){
         return $this -> hasOne(User::class,'id','user_id');
     }
+    public function userName(){
+        return $this -> hasOne(User::class,'id','user_id');
+    }
     public function getGameScore(){
         if($id = request()->id){
             return $this ->where('game_id',$id);

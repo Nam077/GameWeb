@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('name_card')
-    Danh Sách Danh Mục
+    Danh Sách Người Dùng
 @endsection
 @section('js')
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -8,13 +8,13 @@
 @endsection
 @section('main')
     <div class="col-md-12">
-        <a class="btn btn-primary" href="{{route('users.create')}}">Thêm Danh Mục</a>
+        <a class="btn btn-primary" href="{{route('users.create')}}">Thêm Người dùng</a>
     </div>
     <hr>
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Responsive Hover Table</h3>
+                <h3 class="card-title">Danh sách người dùng</h3>
 
                 <div class="card-tools">
                     <form action="">

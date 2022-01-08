@@ -17,19 +17,19 @@ Route::get('/admin/logout', 'AdminController@logOut')->name('admin.logout');
 Route::get('about', function () {
     return view('about');
 });
-
-Route::get('hanoi_tower', function () {
-    return view('Game.hanoi');
-});
-Route::get('gold', function () {
-    return view('Game.gold');
-});
-Route::get('sokoban', function () {
-    return view('Game.sokoban');
-});
-Route::get('number', function () {
-    return view('Game.number');
-});
+//
+//Route::get('hanoi_tower', function () {
+//    return view('Game.hanoi');
+//});
+//Route::get('gold', function () {
+//    return view('Game.gold');
+//});
+//Route::get('sokoban', function () {
+//    return view('Game.sokoban');
+//});
+//Route::get('number', function () {
+//    return view('Game.number');
+//});
 
 Route::group(['prefix' => 'admin', 'middleware' => 'CheckLogOut'], function () {
 
@@ -516,6 +516,14 @@ Route::group(['prefix' => 'playgame', 'middleware' => 'checkAuth'], function () 
     Route::get('/knight/{id}', [
         'as' => 'game.knight',
         'uses' => 'HomeController@knight',
+    ]);
+    Route::get('/hanoi_tower/{id}', [
+        'as' => 'game.tower',
+        'uses' => 'HomeController@hanoi',
+    ]);
+    Route::get('/money-change/{id}', [
+        'as' => 'game.moneychange',
+        'uses' => 'HomeController@moneychange',
     ]);
     Route::post('/savescore', [
         'as' => 'game.savescore',

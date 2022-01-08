@@ -2,6 +2,8 @@ game_W = 0, game_H = 0;
 
 var bg_im = new Image();
 var host = window.location.origin;
+let game_id = document.getElementById("game_id").value;
+document.getElementById("game_id").value = null;
 let nameuser = document.getElementById("name_user").value;
 document.getElementById("name_user").remove();
 bg_im.src = host +"/storage/files/1/slither/Map2.png";
@@ -15,6 +17,7 @@ Nsnake = 20;
 sizeMap = 2000;
 index = 0;
 minScore = 200;
+die = false;
 
 Xfocus = Yfocus = 0;
 XX = 0, YY = 0;
@@ -151,6 +154,8 @@ class game {
     }
 
     loop() {
+        if (die)
+            return;
         this.update();
         this.draw();
         setTimeout(() => this.loop(), 30);
@@ -237,14 +242,47 @@ class game {
                             if (index >= FOOD.length)
                                 index = 0;
                         }
-                        if (i != 0){
-                              mySnake[i] = new snake(names[Math.floor(Math.random() * 99999) % names.length], this, Math.max(Math.floor((mySnake[0].score > 10 * minScore) ? mySnake[0].score / 10 : minScore), mySnake[i].score / 10), this.randomXY(XX), this.randomXY(YY));
-
-                        }
+                        if (i != 0)
+                            mySnake[i] = new snake(names[Math.floor(Math.random() * 99999) % names.length], this, Math.max(Math.floor((mySnake[0].score > 10 * minScore) ? mySnake[0].score / 10 : minScore), mySnake[i].score / 10), this.randomXY(XX), this.randomXY(YY));
                         else {
-                            mySnake[i] = new snake(nameuser, this, minScore, this.randomXY(XX), this.randomXY(YY));
-                            XX = mySnake[0].v[0].x - game_W / 2;
-                            YY = mySnake[0].v[0].y - game_H / 2;
+                            let scoresave = Math.floor(mySnake[i].score)
+                            die = true;
+                            let form = document.getElementById('form_save');
+                            die = true;
+                            Swal.fire({
+                                title: 'Bạn muốn lưu không?',
+                                text:'Điểm của bạn: ' +scoresave,
+                                icon: 'warning',
+                                showCancelButton: true,
+                                confirmButtonColor: '#3085d6',
+                                cancelButtonColor: '#d33',
+                                confirmButtonText: 'Lưu'
+
+                            }).then((result) => {
+
+                                if (result.isConfirmed) {
+                                    document.getElementById("game_id").value = game_id;
+                                    document.getElementById("score").value = scoresave;
+                                    var socre_text = document.getElementById("score").value;
+
+                                    if (String(scoresave) === String(socre_text)) {
+                                        form.submit();
+                                    } else {
+                                        Swal.fire({
+                                            icon: 'error',
+                                            title: 'Oops...',
+                                            text: 'Hacker quèn quá',
+                                        }).then(() => {
+                                            location.reload();
+                                        })
+
+
+                                    }
+
+                                } else {
+                                    location.reload();
+                                }
+                            })
                         }
                     }
                 }

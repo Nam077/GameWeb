@@ -41,7 +41,7 @@
                                     </div>
                                 </div>
                                 <div class="content">
-                                    <h4 class="title"><a href="#">{{strtoupper($item->nameUser->name)}}</a></h4>
+                                    <h4 class="title"><a href="#">{{$item->nameUser->name}}</a></h4>
                                     <h5 class="level-text">ĐIỂM ĐẠT ĐƯỢC:  {{strtoupper($item->score)}}</h5>
 
                                     <div class="content-shape-img">

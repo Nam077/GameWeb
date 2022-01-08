@@ -4,8 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>BONX - Website Game Trí Tuệ</title>
-    <meta name="description" content="Bonx is a terrific esports website template with a slick and modern look.  It’s a robust gaming HTML template for bloggers and online gamers who want to share their enthusiasm for games on the internet."/>
+    <title>VKU GAME - Website Game Trí Tuệ</title>
+    <meta name="description" content="VKUGAME is a terrific esports website template with a slick and modern look.  It’s a robust gaming HTML template for bloggers and online
+    gamers who want to share their enthusiasm for games on the internet."/>
     <meta name="keywords" content="	bootstrap, clean, esports, game, game portal, Game website, gamer, games, gaming, magazine, match, modern, online game, sport, sports">
     <meta name="author" content="Code Carnival">
     <meta name="viewport" content="width=device-width, initial-scale=1">

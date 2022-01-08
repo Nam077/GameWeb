@@ -11,13 +11,13 @@
 @endsection
 @section('main')
     <div class="col-md-12">
-        <a class="btn btn-primary" href="{{route('blogs.create')}}">Thêm Game</a>
+        <a class="btn btn-primary" href="{{route('blogs.create')}}">Viết Blog</a>
     </div>
     <hr>
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Responsive Hover Table</h3>
+
 
                 <div class="card-tools">
                     <form action="">

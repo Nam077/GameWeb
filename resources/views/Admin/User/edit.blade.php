@@ -33,7 +33,7 @@
                 class="form-control @error('name') is-invalid @enderror"
                 id="formGroupExampleInput"
                 value="{{$user->name}}"
-                placeholder="Tên Game">
+                placeholder="Tên Người Dùng">
             @error('name')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
@@ -46,7 +46,7 @@
                 class="form-control @error('email') is-invalid @enderror"
                 id="formGroupExampleInput"
                 value="{{$user->email}}"
-                placeholder="Tên Game">
+                placeholder="Nhập Emai">
             @error('email')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
@@ -59,13 +59,13 @@
                 class="form-control @error('password') is-invalid @enderror"
                 id="formGroupExampleInput"
                 value=""
-                placeholder="Tên Game">
+                placeholder="Nhập Mật Khẩu">
             @error('password')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
         <div class="form-group">
-            <label for="exampleFormControlSelect1">Nhập Tag</label>
+            <label for="exampleFormControlSelect1">Chọn Vai Trò</label>
             <select name="roles_id[]" class="form-control tags_select2_chose @error('roles') is-invalid @enderror"
                     multiple="multiple">
                 @foreach($role as $itemRole)

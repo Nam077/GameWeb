@@ -33,7 +33,7 @@
                 class="form-control @error('name') is-invalid @enderror"
                 id="formGroupExampleInput"
                 value="{{$role->name}}"
-                placeholder="Tên">
+                placeholder="Tên Vai Trò">
             @error('name')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
@@ -46,7 +46,7 @@
                 class="form-control @error('name') is-invalid @enderror"
                 id="formGroupExampleInput"
                 value="{{$role->display_name}}"
-                placeholder="Tên">
+                placeholder="Mô Tả Vai Trò">
             @error('name')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror

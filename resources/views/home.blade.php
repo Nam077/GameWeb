@@ -12,8 +12,7 @@
                             <div class="hero_content">
                                 <h1 class="wow fadeInUp" data-wow-delay="0.1s" data-wow-duration="1.1s">Best Game <br>
                                     Playing Today.</h1>
-                                <p class="wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="1.2s">Simply text of
-                                    the printing and typesetting industry.</p>
+                                <p class="wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="1.2s">Chào mừng bạn đã đến với VKU GAME</p>
                                 <a class="btn btn-link wow fadeInUp" data-wow-delay="0.3s" data-wow-duration="1.3s"
                                    href="{{route('home.allgame')}}">Play Now <img width="20" height="20"
                                                                                   src="{{asset('sites/assets/img/icon/arrrow-icon.webp')}}"

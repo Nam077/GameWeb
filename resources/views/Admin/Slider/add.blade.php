@@ -26,14 +26,14 @@
     <form action="{{route('sliders.store')}}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
-            <label for="formGroupExampleInput">Nhập Tên Slide</label>
+            <label for="formGroupExampleInput">Nhập Tên Slider</label>
             <input
                 name="name"
                 type="text"
                 class="form-control @error('name') is-invalid @enderror"
                 id="formGroupExampleInput"
                 value="{{old('name')}}"
-                placeholder="Tên Game">
+                placeholder="Tên Slider">
             @error('name')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
@@ -46,7 +46,7 @@
                 class="form-control @error('description') is-invalid @enderror"
                 id="formGroupExampleInput"
                 value="{{old('description')}}"
-                placeholder="Tên Game">
+                placeholder="Mô Tả">
             @error('description')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
