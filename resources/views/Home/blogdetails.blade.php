@@ -80,7 +80,7 @@
                                         <div class="single_blog d-flex align-items-center wow fadeInUp" data-wow-delay="0.1s" data-wow-duration="1.1s">
                                             <div class="blog_thumb">
                                                 <a href="{{route('home.blogdetails',['slug' => $blogFooter[0 +4*$item]->slug])}}"><img width="200" height="200"
-                                                                                                                                 src="{{$blogFooter[0 +4*$item]
+                                                                                                                                       src="{{$blogFooter[0 +4*$item]
                                                 ->image_path}}" alt=""></a>
                                             </div>
                                             <div class="blog_content">
@@ -96,7 +96,7 @@
                                         <div class="single_blog d-flex align-items-center wow fadeInUp" data-wow-delay="0.1s" data-wow-duration="1.1s">
                                             <div class="blog_thumb">
                                                 <a href="{{route('home.blogdetails',['slug' => $blogFooter[1 +4*$item]->slug])}}"><img width="200" height="200"
-                                                                                                                                     src="{{$blogFooter[1 + 4*$item]
+                                                                                                                                       src="{{$blogFooter[1 + 4*$item]
                                                 ->image_path}}" alt=""></a>
                                             </div>
                                             <div class="blog_content">
@@ -114,7 +114,8 @@
                                         <div class="single_blog d-flex align-items-center wow fadeInUp" data-wow-delay="0.1s" data-wow-duration="1.1s">
                                             <div class="blog_thumb">
                                                 <a href="{{route('home.blogdetails',['slug' => $blogFooter[2 +4*$item]->slug])}}"><img width="200" height="200"
-                                                                                                                                 src="{{$blogFooter[2 +4*$item] ->image_path}}" alt=""></a>
+                                                                                                                                       src="{{$blogFooter[2 +4*$item] ->image_path}}"
+                                                                                                                                       alt=""></a>
                                             </div>
                                             <div class="blog_content">
                                                 <div class="blog_date">
@@ -216,74 +217,42 @@
                         <div class="blog_comment_wrapper">
                             <div class="comments_box">
                                 <div class="comments_title">
-                                    <h2>COMMENTS (04)</h2>
+                                    <h2>COMMENTS {{count($blogComment)}}</h2>
                                 </div>
+                                @foreach($blogComment as $commentItem)
                                 <div class="comment_list d-flex">
                                     <div class="comment_thumb">
-                                        <img width="100" height="100" src="assets/img/blog/post-comment1.webp" alt="">
+                                        <img width="100" height="100" src="https://template.hasthemes.com/bonx/bonx/assets/img/blog/post-comment1.webp" alt="">
                                     </div>
                                     <div class="comment_content">
-                                        <a href="#"> <img width="36" height="27" src="assets/img/icon/reply.webp" alt=""> </a>
-                                        <h3>Randolph Frazier</h3>
-                                        <span> Web Designer</span>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem sum has been
-                                            unknown printer took a galley of type and scrambled it to make a type specimen book. It has surv
-                                            with desktop publishing software like including versions.</p>
+                                        <h3>{{$commentItem ->rateUser ->name}}</h3>
+                                        <p>{{$commentItem -> comment}}</p>
                                     </div>
                                 </div>
-                                <div class="comment_list d-flex">
-                                    <div class="comment_thumb">
-                                        <img width="100" height="100" src="assets/img/blog/post-comment2.webp" alt="">
-                                    </div>
-                                    <div class="comment_content">
-                                        <a href="#"> <img width="36" height="27" src="assets/img/icon/reply.webp" alt=""> </a>
-                                        <h3>Kenia Bumgarner</h3>
-                                        <span> user Interface designer</span>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem sum has been
-                                            unknown printer took a galley of type and scrambled it to make a type specimen book. It has surv
-                                            with desktop publishing software like including versions.</p>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
-                            <div class="comments_form">
-                                <div class="comments_title">
-                                    <h2>Leave A Comment</h2>
+                            @if(auth()->check())
+                                <div class="comments_form">
+                                    <div class="comments_title">
+                                        <h2>Leave A Comment</h2>
+                                    </div>
+                                    <div class="comments_form_inner">
+                                        <form method="post" action="{{route('game.saverateblog',['slug' =>$blog->slug])}}">
+                                            @csrf
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="comments_form_input">
+                                                        <textarea name='comment' placeholder="Message"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="comments_submit_btn text-center">
+                                                <button type="submit" class="btn btn-link">SUBMIT NOW</button>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
-                                <div class="comments_form_inner">
-                                    <form action="#">
-                                        <div class="row">
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="comments_form_input">
-                                                    <input placeholder="Name *" type="text">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="comments_form_input">
-                                                    <input placeholder="Email *" type="text">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="comments_form_input">
-                                                    <input placeholder="Address *" type="text">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="comments_form_input">
-                                                    <input placeholder="Subject" type="text">
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="comments_form_input">
-                                                    <textarea placeholder="Message"></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="comments_submit_btn text-center">
-                                            <a class="btn btn-link" href="#">SUBMIT NOW <img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""> </a>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
+                            @endif
                         </div>
                     </div>
                 </div>

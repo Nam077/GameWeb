@@ -291,7 +291,41 @@ Route::group(['prefix' => 'admin', 'middleware' => 'CheckLogOut'], function () {
         ]);
 
     });
+    Route::prefix('rate-blog')->group(function () {
+        Route::get('/{id}', [
+            'as' => 'rateblog.index',
+            'uses' => 'AdminBlogRateController@index',
+            'middleware' => 'can:blog-list',
 
+        ]);
+        Route::get('/add', [
+            'as' => 'rateblog.create',
+            'uses' => 'AdminBlogRateController@create',
+            'middleware' => 'can:blog-create',
+        ]);
+        Route::post('/store', [
+            'as' => 'rateblog.store',
+            'uses' => 'AdminBlogRateController@store'
+        ]);
+        Route::get('/edit/{id}', [
+            'as' => 'rateblog.edit',
+            'uses' => 'AdminBlogRateController@edit',
+            'middleware' => 'can:blog-edit',
+
+        ]);
+        Route::post('/update/{id}', [
+            'as' => 'rateblog.update',
+            'uses' => 'AdminBlogRateController@update',
+
+
+        ]);
+        Route::get('/delete/{id}', [
+            'as' => 'rateblog.delete',
+            'uses' => 'AdminBlogRateController@destroy',
+            'middleware' => 'can:blog-delete',
+        ]);
+
+    });
     Route::prefix('contact')->group(function () {
         Route::get('/', [
             'as' => 'contactadmin.index',
@@ -490,6 +524,10 @@ Route::group(['prefix' => 'playgame', 'middleware' => 'checkAuth'], function () 
     Route::post('/saverate/{id}', [
         'as' => 'game.saverate',
         'uses' => 'HomeController@saveRate',
+    ]);
+    Route::post('/saverateblog/{slug}', [
+        'as' => 'game.saverateblog',
+        'uses' => 'HomeController@saveRateBlog',
     ]);
     Route::get('/savescore', [
         'as' => 'game.savescore',

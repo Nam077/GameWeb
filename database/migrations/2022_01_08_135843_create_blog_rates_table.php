@@ -15,6 +15,9 @@ class CreateBlogRatesTable extends Migration
     {
         Schema::create('blog_rates', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->Integer('user_id');
+            $table->Integer('blog_id');
+            $table->Text('comment');
             $table->timestamps();
         });
     }

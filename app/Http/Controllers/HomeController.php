@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Blog;
+use App\BlogRate;
 use App\BlogTag;
 use App\Category;
 use App\Contact;
@@ -23,7 +24,8 @@ use Illuminate\Support\Facades\Log;
 class HomeController extends Controller
 {
 
-    public function __construct(User $user, Game $game, Category $category, Contact $contact, GameScore $gameScore, GameRate $gameRate,   Slider $slider, Blog $blog, TagBlog $tagBlog)
+    public function __construct(BlogRate $blogRate,User $user, Game $game, Category $category, Contact $contact, GameScore $gameScore, GameRate $gameRate,   Slider $slider, Blog $blog, TagBlog
+    $tagBlog)
     {
         $this->user = $user;
         $this->category = $category;
@@ -34,6 +36,7 @@ class HomeController extends Controller
         $this->slider = $slider;
         $this->blog = $blog;
         $this->tagBlog = $tagBlog;
+        $this->blogRate = $blogRate;
     }
     /**
      * Create a new controller instance.
@@ -277,6 +280,24 @@ class HomeController extends Controller
         }
         return redirect()->back();
     }
+    public function saveRateBlog(Request $request, $slug)
+    {
+        try {
+            $blog = $this->blog->getBlogBySlug()->first();
+            DB::beginTransaction();
+            $blogRate = $this->blogRate->create([
+                'blog_id' => $blog->id,
+                'user_id' => Auth::user()->id,
+                'comment' => $request->comment,
+            ]);
+            DB::commit();
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            dd($exception);
+            Log::error('Messges' . $exception->getMessage() . 'Line' . $exception->getLine());
+        }
+        return redirect()->back();
+    }
     public function detailBlog($slug){
 
         if(request()->slug == null){
@@ -286,8 +307,8 @@ class HomeController extends Controller
         $gameall = $this->game->all();
         $category = $this->category->all();
         $blog = $this->blog->getBlogBySlug()->first();
-
-        return  view('home.blogdetails',compact('blog','gameall','category','blogFooter'));
+        $blogComment = $blog->getAllComments()->get();
+        return  view('home.blogdetails',compact('blog','gameall','category','blogFooter','blogComment'));
     }
     public function blog(){
         $category = $this->category->all();

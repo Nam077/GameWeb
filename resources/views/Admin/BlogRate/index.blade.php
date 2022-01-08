@@ -10,9 +10,9 @@
     <script src="{{asset('admins/game/view/index.js')}}"></script>
 @endsection
 @section('main')
-    <div class="col-md-12">
-        <a class="btn btn-primary" href="{{route('blogs.create')}}">Thêm Game</a>
-    </div>
+{{--    <div class="col-md-12">--}}
+{{--        <a class="btn btn-primary" href="{{route('games.create')}}">Thêm Game</a>--}}
+{{--    </div>--}}
     <hr>
     <div class="col-12">
         <div class="card">
@@ -40,38 +40,28 @@
                     <tr>
                         <th>ID</th>
                         <th>Tên Game</th>
-                        <th>Hình Ảnh</th>
-                        <th>Danh Mục</th>
-                        <th>Hướng Dẫn</th>
+                        <th>Người Bình Luận</th>
+                        <th>Bình Luận</th>
                         <th class="text-right">Action</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($blog as $item)
+                    @foreach($blogRate as $Items)
                         <tr>
-                            <td>{{$item -> id}}</td>
-                            <td>{{$item -> name}}</td>
-                            <td>
-                                <img class="image_game" src="{{$item -> image_path}}" alt="">
-                            </td>
-                            <td>{{$item  ->name}}</td>
-                            <td>
+                            <td>{{$Items -> id}}</td>
+                            <td>{{$Items -> rateBlog ->name}}</td>
+                            <td>{{$Items -> rateUser ->name}}</td>
+                            <td style="word-wrap: break-word;width:400px;white-space: normal;">{{$Items -> comment}}</td>
                             <td class="text-right">
 
-                                <a href="{{route('blogs.edit',['id' =>$item->id])}}"
-                                   class="btn btn-sm btn-success">
-                                    <i class="fas fa-edit"></i>
-                                </a>
-                                <a href="{{route('rateblog.index',['id' =>$item->id])}}"
-                                   class="btn btn-sm btn-success">
-                                    <i class="fas fa-edit"></i>
-                                </a>
-
-                                <a href="" data-url="{{route('blogs.delete',['id' =>$item->id])}}"
+{{--                                <a href="{{route('gamesc.edit',['id' =>$Items->id])}}"--}}
+{{--                                   class="btn btn-sm btn-success">--}}
+{{--                                    <i class="fas fa-edit"></i>--}}
+{{--                                </a>--}}
+                                <a href="" data-url="{{route('rateblog.delete',['id' =>$Items->id])}}"
                                    class="btn btn-sm btn-danger btn-delete">
                                     <i class="fas fa-trash"></i>
                                 </a>
-
                             </td>
 
                         </tr>
@@ -82,7 +72,7 @@
 
             </div>
             <div class="col-md-12 ">
-                {{ $blog->appends(request()->all())->links() }}
+                {{ $blogRate->appends(request()->all())->links() }}
             </div>
             <!-- /.card-body -->
         </div>

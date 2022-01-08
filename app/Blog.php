@@ -24,4 +24,7 @@ class Blog extends Model
             return $this ->where('slug', $slug);
         }
     }
+    public function  getAllComments(){
+        return $this ->hasMany(BlogRate::class, 'blog_id', 'id');
+    }
 }
