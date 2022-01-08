@@ -13,4 +13,7 @@ class Blog extends Model
         }
         return $query;
     }
+    public function tags(){
+        return $this -> belongsToMany(tagBlog::class, 'blog_tags','blog_id','tag_id')->withTimestamps();
+    }
 }

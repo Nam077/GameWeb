@@ -52,21 +52,18 @@
                             <td>{{$item -> id}}</td>
                             <td>{{$item -> name}}</td>
                             <td>
-                                <img class="image_game" src="{{$item -> feature_image_path}}" alt="">
+                                <img class="image_game" src="{{$item -> image_path}}" alt="">
                             </td>
                             <td>{{$item  ->name}}</td>
                             <td>
                             <td class="text-right">
 
-                                <a href="{{route('games.edit',['id' =>$item->id])}}"
+                                <a href="{{route('blogs.edit',['id' =>$item->id])}}"
                                    class="btn btn-sm btn-success">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <a href="{{route('gamescore.index',['id' =>$item->id])}}"
-                                   class="btn btn-sm btn-success">
-                                    <i class="fas fa-columns"></i>
-                                </a>
-                                <a href="" data-url="{{route('games.delete',['id' =>$item->id])}}"
+
+                                <a href="" data-url="{{route('blogs.delete',['id' =>$item->id])}}"
                                    class="btn btn-sm btn-danger btn-delete">
                                     <i class="fas fa-trash"></i>
                                 </a>

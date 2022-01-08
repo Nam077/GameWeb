@@ -272,10 +272,16 @@ Route::group(['prefix' => 'admin', 'middleware' => 'CheckLogOut'], function () {
             'as' => 'blogs.store',
             'uses' => 'AdminBlogController@store'
         ]);
-        Route::get('/view/{id}', [
-            'as' => 'blogs.view',
-            'uses' => 'AdminBlogController@view',
+        Route::get('/edit/{id}', [
+            'as' => 'blogs.edit',
+            'uses' => 'AdminBlogController@edit',
             'middleware' => 'can:blog-edit',
+
+        ]);
+        Route::post('/update/{id}', [
+            'as' => 'blogs.update',
+            'uses' => 'AdminBlogController@update',
+
 
         ]);
         Route::get('/delete/{id}', [

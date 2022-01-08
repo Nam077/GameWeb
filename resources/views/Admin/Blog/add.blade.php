@@ -23,7 +23,7 @@
         @endif
 
     </div>
-    <form action="{{route('games.store')}}" method="post" enctype="multipart/form-data">
+    <form action="{{route('blogs.store')}}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <label for="formGroupExampleInput">Nhập Tên Trò Chơi</label>
@@ -39,20 +39,6 @@
             @enderror
         </div>
         <div class="form-group">
-            <label for="formGroupExampleInput">Nhập Đường Dẫn</label>
-            <input
-                name="path"
-                type="text"
-                class="form-control @error('path') is-invalid @enderror"
-                id="formGroupExampleInput"
-                value="{{old('path')}}"
-                placeholder="Tên Game">
-            @error('path')
-            <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
-        </div>
-
-        <div class="form-group">
             <label for="formGroupExampleInput">Ảnh Đại Diện</label>
             <input
                 name="feature_image_path"
@@ -65,35 +51,14 @@
             @enderror
         </div>
         <div class="form-group">
-            <label for="formGroupExampleInput">Ảnh Chi Tiết</label>
-            <input
-                name="image_path[]"
-                multiple
-                value="{{old('image_path')}}"
-                type="file"
-                class="form-control @error('image_path') is-invalid @enderror"
-                id="formGroupExampleInput">
-            @error('image_path')
-            <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
-        </div>
-        <div class="form-group">
-            <label>Chọn Danh Mục</label>
-            <select name="category_id" class="form-control select2_init class="
-                    @error('category_id') is-invalid @enderror">
-            {!! $htmlOption !!}
-            </select>
-        </div>
-
-        <div class="form-group">
             <label for="exampleFormControlSelect1">Nhập Tag</label>
-            <select name="game_tag[]" class="form-control tags_select2_chose @error('game_tag') is-invalid @enderror"
+            <select name="blog_tag[]" class="form-control tags_select2_chose @error('blog_tag') is-invalid @enderror"
                     multiple="multiple">
                 @foreach($tag as $itemTag)
                     <option value="{{$itemTag->name}}">{{$itemTag->name}}</option>
                 @endforeach
             </select>
-            @error('game_tag')
+            @error('blog_tag')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
@@ -102,14 +67,6 @@
             <textarea name="contents" class="form-control my-editor @error('contents') is-invalid @enderror" id="exampleFormControlTextarea1"
                       rows="8">{{old('contents')}}</textarea>
             @error('contents')
-            <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
-        </div>
-        <div class="form-group">
-            <label for="formGroupExampleInput ">Nhập Hướng Dẫn Chơi</label>
-            <textarea name="tutorial" class="form-control my-editor  @error('tutorial') is-invalid @enderror" id="exampleFormControlTextarea1"
-                      rows="8">{{old('tutorial')}}</textarea>
-            @error('tutorial')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
