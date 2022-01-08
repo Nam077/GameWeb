@@ -344,7 +344,7 @@
                         <div class="single_blog d-flex align-items-center wow fadeInUp" data-wow-delay="0.1s"
                              data-wow-duration="1.1s">
                             <div class="blog_thumb">
-                                <a href="blog-details.html"><img width="200" height="200"
+                                <a href="blog-details.html"><img width="400" height="400"
                                                                  src="{{asset('sites/assets/img/blog/blog2.webp')}}"
                                                                  alt=""></a>
                             </div>
@@ -396,7 +396,35 @@
             </div>
         </section>
         <!-- blog section end -->
-
+        <!-- blog section start -->
+        <section class="blog_section mb-90">
+            <div class="container">
+                <div class="section_title text-center wow fadeInUp mb-70" data-wow-delay="0.1s" data-wow-duration="1.1s">
+                    <h2>Latest Blog</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod <br> tempor incididunt ut labore et dolore magna</p>
+                </div>
+                <div class="row blog_inner">
+                    @foreach($blog as $itemBlog)
+                    <div class="col-lg-6">
+                        <div class="single_blog d-flex align-items-center wow fadeInUp" data-wow-delay="0.1s" data-wow-duration="1.1s">
+                            <div class="blog_thumb">
+                                <a href="{{route('home.blogdetails',['slug' => $itemBlog->slug])}}"><img width="200" height="200" src="{{$itemBlog -> image_path}}" alt=""></a>
+                            </div>
+                            <div class="blog_content">
+                                <div class="blog_date">
+                                    <span><i class="icofont-calendar"></i> {{date('d-m-Y', strtotime($itemBlog->created_at))}}  by <a
+                                            href="#">{{$itemBlog->nameUser->name}}</a></span>
+                                </div>
+                                <h3><a href="{{route('home.blogdetails',['slug' => $itemBlog->slug])}}">{{$itemBlog -> name}}</a></h3>
+                                <a href="{{route('home.blogdetails',['slug' => $itemBlog->slug])}}">READ MORE</a>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+        <!-- blog section end -->
         <!-- gaming update section start -->
         <section class="gaming_update_section">
             <div class="container">

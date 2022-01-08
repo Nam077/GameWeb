@@ -418,9 +418,17 @@ Route::get('/catgory/{slug}', [
     'as' => 'home.gameCategory',
     'uses' => 'HomeController@gameCategory',
 ]);
+Route::get('/blog/{slug}', [
+    'as' => 'home.blogdetails',
+    'uses' => 'HomeController@detailBlog',
+]);
 Route::get('/', [
     'as' => 'home.index',
     'uses' => 'HomeController@index',
+]);
+Route::get('/blog', [
+    'as' => 'home.blog',
+    'uses' => 'HomeController@blog',
 ]);
 Route::get('/contact', [
     'as' => 'home.contact',

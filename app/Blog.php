@@ -13,7 +13,15 @@ class Blog extends Model
         }
         return $query;
     }
+    public function nameUser(){
+        return $this ->hasOne(User::class, 'id','user_id');
+    }
     public function tags(){
         return $this -> belongsToMany(tagBlog::class, 'blog_tags','blog_id','tag_id')->withTimestamps();
+    }
+    public function getBlogBySlug(){
+        if($slug = request()->slug){
+            return $this ->where('slug', $slug);
+        }
     }
 }

@@ -21,6 +21,5 @@ class Category extends Model
         if($slug = request()->slug){
             return $this ->where('slug', $slug);
         }
-
     }
 }

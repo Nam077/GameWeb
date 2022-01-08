@@ -140,8 +140,6 @@ class AdminBlogController extends Controller
             $Blog= $this->blog->find($id);
             /////////////////////////////
 
-            /////////////////////////Tag
-            ///
             if(!empty($request->blog_tag)){
                 foreach ($request->blog_tag as $tagItem) {
                     $tagInstance = $this->tagBlog->firstOrCreate([
@@ -165,10 +163,24 @@ class AdminBlogController extends Controller
      * Remove the specified resource from storage.
      *
      * @param \App\Blog $blog
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\Response
      */
-    public function destroy(Blog $blog)
+    public function destroy($id)
     {
-        //
+        try {
+            $this ->blog->find($id)->delete();
+            $this ->blogTag ->where('blog_id',$id)->delete();
+            return  response() -> json([
+                'code' => 200,
+                'message' => 'success'
+            ], 200);
+
+        } catch (\Exception $exception){
+            Log::error('Messges' . $exception->getMessage() . 'Line' . $exception->getLine());
+            return  response() -> json([
+                'code' => 500,
+                'message' => 'fail'
+            ], 500);
+        }
     }
 }

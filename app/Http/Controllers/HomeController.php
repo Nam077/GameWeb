@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Blog;
 use App\Category;
 use App\Contact;
 use App\Game;
@@ -20,7 +21,7 @@ use Illuminate\Support\Facades\Log;
 class HomeController extends Controller
 {
 
-    public function __construct(User $user, Game $game, Category $category, Contact $contact, GameScore $gameScore, GameRate $gameRate,   Slider $slider)
+    public function __construct(User $user, Game $game, Category $category, Contact $contact, GameScore $gameScore, GameRate $gameRate,   Slider $slider, Blog $blog)
     {
         $this->user = $user;
         $this->category = $category;
@@ -29,6 +30,7 @@ class HomeController extends Controller
         $this->gameScore = $gameScore;
         $this->gameRate = $gameRate;
         $this->slider = $slider;
+        $this->blog = $blog;
     }
     /**
      * Create a new controller instance.
@@ -45,11 +47,12 @@ class HomeController extends Controller
 
     public function index()
     {
+        $blog = $this->blog->orderBy('created_at', 'DESC')->paginate(4);
         $category = $this->category->all();
         $slider = $this->slider->paginate(4);
         $game = $this->game->paginate(4);
         $gameall = $this->game->all();
-        return view('home', ['game' => $game, 'category' => $category, 'gameall' => $gameall, 'slider'=>$slider]);
+        return view('home', ['game' => $game, 'category' => $category, 'gameall' => $gameall, 'slider'=>$slider, 'blog'=>$blog]);
     }
 
     public function gameCategory($slug)
@@ -270,5 +273,17 @@ class HomeController extends Controller
             Log::error('Messges' . $exception->getMessage() . 'Line' . $exception->getLine());
         }
         return redirect()->back();
+    }
+    public function detailBlog($slug){
+
+        if(request()->slug == null){
+            return redirect()->back();
+        }
+        $blogFooter = $this->blog->orderBy('created_at', 'DESC')->paginate(12);
+        $gameall = $this->game->all();
+        $category = $this->category->all();
+        $blog = $this->blog->getBlogBySlug()->first();
+
+        return  view('home.blogdetails',compact('blog','gameall','category','blogFooter'));
     }
 }
